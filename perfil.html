@@ -1,0 +1,42 @@
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil do Usuário</title>
+    <link rel="stylesheet" href="styledois.css">
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <h1>Perfil do Usuário</h1>
+    </div>
+</header>
+<main>
+<div class="container perfil">
+    <h2>OLÁ, <span id="userNome"></span>!</h2>
+    <ul>
+        <li><strong>Email:</strong> <span id="userEmail"></span></li>
+        <li><strong>Telefone:</strong> <span id="userTelefone"></span></li>
+        <li><strong>CPF:</strong> <span id="userCpf"></span></li>
+    </ul>
+</div>
+</main>
+<script>
+    // Recuperar os dados do usuário do localStorage
+    const usuario = JSON.parse(localStorage.getItem('usuario'));
+    
+    if (usuario) {
+        // Preencher as informações do perfil
+        document.getElementById('userNome').textContent = usuario.nome;
+        document.getElementById('userEmail').textContent = usuario.email;
+        document.getElementById('userTelefone').textContent = usuario.telefone;
+        document.getElementById('userCpf').textContent = usuario.cpf;
+    } else {
+        // Redirecionar se não houver dados no localStorage
+        window.location.href = 'index.html';
+    }
+</script>
+
+</body>
+</html>
